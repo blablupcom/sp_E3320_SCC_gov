@@ -102,7 +102,7 @@ for link in links:
     url = 'http://www.somerset.gov.uk' + link['href']
     aTitle = link['title']
     if 'csv' in aTitle:
-        title = link.encode_contents(formatter='html').replace('&nbsp;',' ')
+        title = link.encode_contents(formatter='html').replace('&nbsp;',' ').strip()
         csvYr = title.split(' ')[1]
         csvMth = title.split(' ')[0][:3]
         csvMth = convert_mth_strings(csvMth.upper())
