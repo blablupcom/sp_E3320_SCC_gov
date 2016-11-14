@@ -96,12 +96,12 @@ soup = BeautifulSoup(html, 'lxml')
 
 #### SCRAPE DATA
 
-links = soup.findAll('a', title=True)
+links = soup.findAll('a', 'oLinkAsset')
 
 for link in links:
     url = 'http://www.somerset.gov.uk' + link['href']
     aTitle = link['title']
-    if 'csv' in aTitle:
+    if 'csv' in aTitle or 'SC01 Sept 16' in aTitle:
         title = link.encode_contents(formatter='html').replace('&nbsp;',' ').strip()
         csvYr = title.split(' ')[1]
         csvMth = title.split(' ')[0][:3]
